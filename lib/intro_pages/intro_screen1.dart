@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/intro_pages/intro_screen2.dart';
 import 'package:movies_app/utils/app_images.dart';
 import 'package:movies_app/utils/app_styles.dart';
 
 import '../utils/custm_elevated_button.dart';
 
-class IntroScreen extends StatelessWidget{
+class IntroScreen1 extends StatelessWidget{
   @override
-  static String routeName = "intro";
+  static String routeName = "intro1";
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width;
     var height=MediaQuery.of(context).size.height;
@@ -35,7 +36,7 @@ class IntroScreen extends StatelessWidget{
                 child: CustmElevatedButton(text:"Explore Now",
                   BGcolor: Colors.amber,
                   styleOfChild: AppStyles.bold36black,
-                  onpressed: (){},),
+                  onpressed: (){Navigator.of(context).pushNamed(IntroScreen2.routeName);},),
               ),
               SizedBox(height: height*0.04,),
             ]
