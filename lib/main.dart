@@ -4,7 +4,9 @@ import 'package:movies_app/intro_pages/intro_screen3.dart';
 import 'package:movies_app/intro_pages/intro_screen4.dart';
 import 'package:movies_app/intro_pages/intro_screen5.dart';
 import 'package:movies_app/intro_pages/intro_screen6.dart';
+import 'package:movies_app/utils/app_theme.dart';
 
+import 'home_screen.dart';
 import 'intro_pages/intro_screen1.dart';
 
 void main() {
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      darkTheme: AppTheme.DarkTheme,
       themeMode: ThemeMode.dark,
       initialRoute:IntroScreen1.routeName,
       routes: {
@@ -27,6 +30,7 @@ class MyApp extends StatelessWidget {
         IntroScreen4.routeName: (context)=>IntroScreen4(),
         IntroScreen5.routeName: (context)=>IntroScreen5(),
         IntroScreen6.routeName: (context)=>IntroScreen6(),
+        HomeScreen.routeName: (context)=>HomeScreen(),
       },
     );
   }

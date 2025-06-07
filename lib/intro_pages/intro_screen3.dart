@@ -5,7 +5,7 @@ import 'package:movies_app/utils/app_colors.dart';
 import 'package:movies_app/utils/app_images.dart';
 import 'package:movies_app/utils/app_styles.dart';
 
-import '../utils/custm_elevated_button.dart';
+import '../Reusable_widgets/custm_elevated_button.dart';
 
 class IntroScreen3 extends StatelessWidget{
   @override
