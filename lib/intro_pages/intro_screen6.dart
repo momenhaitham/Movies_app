@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/home_screen.dart';
 import 'package:movies_app/utils/app_colors.dart';
 import 'package:movies_app/utils/app_images.dart';
 import 'package:movies_app/utils/app_styles.dart';
 
-import '../utils/custm_elevated_button.dart';
+import '../Reusable_widgets/custm_elevated_button.dart';
 
 class IntroScreen6 extends StatelessWidget{
   @override
@@ -36,7 +37,7 @@ class IntroScreen6 extends StatelessWidget{
                       child: CustmElevatedButton(text:"Finish",
                         BGcolor: Colors.amber,
                         styleOfChild: AppStyles.bold36black,
-                        onpressed: (){},),
+                        onpressed: (){Navigator.of(context).pushNamed(HomeScreen.routeName);},),
                     ),
                     SizedBox(height: height*0.02,),
                     Container(
