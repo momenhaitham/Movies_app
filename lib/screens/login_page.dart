@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-import 'package:movies_app/providers/langueprovider.dart';
+
 import 'package:movies_app/screens/forgotpassword.dart';
 import 'package:movies_app/screens/regstier.dart';
 import 'package:movies_app/utils/app_colors.dart';
@@ -10,7 +8,7 @@ import 'package:movies_app/utils/app_styles.dart';
 import 'package:movies_app/utils/custm_elevated_button.dart';
 import 'package:movies_app/utils/custm_text_form_field.dart';
 import 'package:movies_app/utils/customTexButton.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'package:movies_app/l10n/app_localizations.dart';
 import 'package:movies_app/utils/customswitch.dart';
 import 'package:provider/provider.dart';
