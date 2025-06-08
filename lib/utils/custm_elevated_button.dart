@@ -23,9 +23,11 @@ class CustmElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      
         onPressed: (){onpressed();},
         child: Text(text??"",style: styleOfChild,),
         style: ElevatedButton.styleFrom(
+          
           backgroundColor: BGcolor,
           shape:RoundedRectangleBorder(side: BorderSide(color:BorderColor??Colors.transparent,width: BorderWidth??0,),
               borderRadius:BorderRadius.circular(borderRadius??15))

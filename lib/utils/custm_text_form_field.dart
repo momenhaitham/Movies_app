@@ -14,7 +14,7 @@ class CustmTextFormField extends StatelessWidget {
   TextStyle? hintTextStyle;
   Widget? prefix;
   Widget? sufix;
-  Icon? prefixIcon;
+  Widget? prefixIcon;
   Icon? sufixIcon;
   Color? cursorColor;
   TextStyle? FilledTextStyle;
@@ -25,6 +25,7 @@ class CustmTextFormField extends StatelessWidget {
   String? initValue;
   TextInputType? keyboardTybe;
   bool? ObscureText;
+  Color? fillColor;
 
   CustmTextFormField({
     this.enabledBorderColor,
@@ -45,7 +46,8 @@ class CustmTextFormField extends StatelessWidget {
     this.OnChanged,
     this.initValue,
     this.keyboardTybe,
-    this.ObscureText
+    this.ObscureText,
+    this.fillColor,
   });
 
   @override
@@ -55,6 +57,7 @@ class CustmTextFormField extends StatelessWidget {
         focusedErrorBorder:OutlineInputBorder(
           borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
           borderRadius: BorderRadius.circular(12),
+          
         ) ,
         enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
@@ -75,7 +78,9 @@ class CustmTextFormField extends StatelessWidget {
         prefix: prefix??null,
         suffix: sufix??null,
         prefixIcon: prefixIcon,
-        suffixIcon: sufixIcon
+        suffixIcon: sufixIcon,
+        fillColor: fillColor??Colors.transparent,
+        filled:  true
       ),
       cursorColor:cursorColor??Colors.grey,
       style:FilledTextStyle ,
