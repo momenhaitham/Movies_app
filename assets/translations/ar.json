@@ -1,0 +1,20 @@
+{
+  "login": "تسجيل الدخول",
+  "logout": "تسجيل الخروج",
+  "welcome": "مرحبًا بك في تطبيقنا!",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "error_invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "confirmpassword": "تأكيد كلمة المرور",
+  "name": "الاسم",
+  "regster": "تسجيل",
+  "create_account": "إنشاء حساب",
+  "forgot_password": "هل نسيت كلمة المرور؟",
+  "phonnumber": "رقم الهاتف",
+  "reset_password": "إعادة تعيين كلمة المرور",
+  "loginwith_google": "تسجيل الدخول باستخدام جوجل",
+  "already_have_account": "هل لديك حساب بالفعل؟",
+  "dont_have_account": "ليس لديك حساب؟",
+  "verfy_email": "تأكيد بريدك الإلكتروني",
+  "or": "أو"
+}

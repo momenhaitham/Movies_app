@@ -14,5 +14,23 @@ class AppImages {
   static String intro6shade= "assets/images/intro6shade.png";
   static String AvailableNow= "assets/images/Available Now.png";
   static String WatchNow= "assets/images/Watch Now.png";
+  static String login_logo = 'assets/images/login_logo.png';
+  static String email_icon = 'assets/images/email_icon.png';
+  static String password_icon = 'assets/images/pass_icon.png';
+  static String google_icon = 'assets/images/google_icon.png';
+  static String phone_icon = 'assets/images/phoneicon.png';
+  static String nameicon = 'assets/images/nameicon.png';
+  static String eg = 'assets/images/eg1.svg';
+  static String us = 'assets/images/us1.svg';
+  static String gamer1 = 'assets/images/gamer1.png';
+  static String gamer2 = 'assets/images/gamer2.png';
+  static String gamer3 = 'assets/images/gamer3.png';
+  static String gamer4 = 'assets/images/gamer4.png';
+  static String gamer5 = 'assets/images/gamer5.png';
+  static String gamer6 = 'assets/images/gamer6.png';
+  static String gamer7 = 'assets/images/gamer7.png';
+  static String gamer8 = 'assets/images/gamer8.png';
+  static String gamer9 = 'assets/images/gamer9.png';
+  static String forgort_password = 'assets/images/forgotpasswordbg.png';
 
 }
