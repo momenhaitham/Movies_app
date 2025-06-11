@@ -14,7 +14,7 @@ class CustmTextFormField extends StatelessWidget {
   TextStyle? hintTextStyle;
   Widget? prefix;
   Widget? sufix;
-  Icon? prefixIcon;
+  Widget? prefixIcon;
   Icon? sufixIcon;
   Color? cursorColor;
   TextStyle? FilledTextStyle;
@@ -25,6 +25,7 @@ class CustmTextFormField extends StatelessWidget {
   String? initValue;
   TextInputType? keyboardTybe;
   bool? ObscureText;
+  Color? fillColor;
 
   CustmTextFormField({
     this.enabledBorderColor,
@@ -45,37 +46,41 @@ class CustmTextFormField extends StatelessWidget {
     this.OnChanged,
     this.initValue,
     this.keyboardTybe,
-    this.ObscureText
+    this.ObscureText,
+    this.fillColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        focusedErrorBorder:OutlineInputBorder(
-          borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
-          borderRadius: BorderRadius.circular(12),
-        ) ,
-        enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
+          focusedErrorBorder:OutlineInputBorder(
+            borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
             borderRadius: BorderRadius.circular(12),
-        ),
-        focusedBorder: OutlineInputBorder(
+
+          ) ,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 2,color:foucsedBorderColor??Colors.grey),
             borderRadius:BorderRadius.circular(12),),
-        errorBorder:OutlineInputBorder(
-          borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        enabled: true,
-        labelText: labelText??null,
-        labelStyle: labelTextStyle??null,
-        hintText: hintText??null,
-        hintStyle: hintTextStyle??null,
-        prefix: prefix??null,
-        suffix: sufix??null,
-        prefixIcon: prefixIcon,
-        suffixIcon: sufixIcon
+          errorBorder:OutlineInputBorder(
+            borderSide: BorderSide(width: 2,color:enabledBorderColor??Colors.grey),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          enabled: true,
+          labelText: labelText??null,
+          labelStyle: labelTextStyle??null,
+          hintText: hintText??null,
+          hintStyle: hintTextStyle??null,
+          prefix: prefix??null,
+          suffix: sufix??null,
+          prefixIcon: prefixIcon,
+          suffixIcon: sufixIcon,
+          fillColor: fillColor??Colors.transparent,
+          filled:  true
       ),
       cursorColor:cursorColor??Colors.grey,
       style:FilledTextStyle ,
@@ -88,6 +93,7 @@ class CustmTextFormField extends StatelessWidget {
       keyboardType:keyboardTybe,
       obscureText: ObscureText??false,
       obscuringCharacter: "*",
+
     );
   }
 }
