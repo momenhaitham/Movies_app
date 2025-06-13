@@ -1,6 +1,7 @@
 import 'package:animated_button_bar/animated_button_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:movies_app/Api/api_manager.dart';
 import 'package:movies_app/Tabs/profile_tab/EditProfileTab/edit_profile_screen.dart';
 import 'package:movies_app/Tabs/profile_tab/MainProfileTab/profile_tab_states.dart';
@@ -14,7 +15,6 @@ import '../../../Reusable_widgets/custm_elevated_button.dart';
 import '../../../providers/app_provider.dart';
 
 class ProfileTab extends StatefulWidget {
-  const ProfileTab({super.key});
 
   @override
   State<ProfileTab> createState() => _ProfileTabState();
@@ -25,6 +25,7 @@ class _ProfileTabState extends State<ProfileTab> {
 
   int ButtonBarindex = 0;
   ProfileTabViewModel profileTabViewModel = ProfileTabViewModel();
+
   @override
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width;

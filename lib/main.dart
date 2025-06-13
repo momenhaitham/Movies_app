@@ -12,6 +12,7 @@ import 'package:movies_app/screens/login_screen/login_page.dart';
 import 'package:movies_app/screens/register_screen/regstier.dart';
 import 'package:provider/provider.dart';
 import 'Tabs/profile_tab/EditProfileTab/edit_profile_screen.dart';
+import 'Tabs/profile_tab/EditProfileTab/reset_password_screen.dart';
 import 'intro_pages/intro_screen1.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -74,6 +75,7 @@ class _MyAppState extends State<MyApp> {
         LoginPage.loginroute: (context) => LoginPage(),
         Regstier_page.regstierroute: (context) => Regstier_page(),
         ForgotPassWord.forgotPasswordRoute: (context) => ForgotPassWord(),
+        ResetPasswordScreen.routeName:(context)=>ResetPasswordScreen()
       },
     );
   }

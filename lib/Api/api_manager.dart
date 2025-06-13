@@ -85,19 +85,23 @@ class ApiManager {
   }
 
   static Future<ResetPasswordResponse> ResetPassword({required String tokin,required String oldPassword,required String newPassword})async{
-    Uri url = await Uri.https('route-movie-apis.vercel.app','/auth/reset-password');
+
+    try{Uri url = await Uri.https('route-movie-apis.vercel.app','/auth/reset-password');
     var requist =await http.patch(url,
         headers: {'Content-Type': 'application/json',
           'Authorization': 'Bearer $tokin',
         },
         body:jsonEncode({
-    "oldPassword":oldPassword,
-    "newPassword":newPassword})
+          "oldPassword":oldPassword,
+          "newPassword":newPassword})
     );
     var json = jsonDecode(requist.body);
     print(json);
     var response = ResetPasswordResponse.fromJson(json);
-    return response;
+    return response;}catch(e){
+      throw e;
+    }
+
   }
 
 
