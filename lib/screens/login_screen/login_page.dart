@@ -260,7 +260,7 @@ class _LoginPageState extends State<LoginPage> {
                             current: currentSelected,
                             values: [0,1],
                             iconList: [
-                              CountryFlag.fromCountryCode('ES',
+                              CountryFlag.fromCountryCode('US',
                                 shape: const Circle(),)
                               ,
 
