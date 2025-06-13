@@ -14,7 +14,7 @@ class LoginPageViewModel extends Cubit<LoginPageStates>{
 
   void Login({required String Email,required String Password,required BuildContext context}) async
   {
-    ShowDialogUtils.ShowLoading(context);
+
     var response = await ApiManager.Login(Email: Email, Password: Password);
     if (response.message=="Success Login"){
       message=response.message;

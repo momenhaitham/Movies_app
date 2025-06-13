@@ -152,9 +152,9 @@ class _LoginPageState extends State<LoginPage> {
                             child: CustmElevatedButton(
                               onpressed: ()async{
                                 if(formKey.currentState?.validate()==true){
-                                  ShowDialogUtils.ShowLoading(context);
                                   final bool isConnected = await InternetConnectionChecker.instance.hasConnection;
                                   if (isConnected){
+                                    ShowDialogUtils.ShowLoading(context);
                                     log.Login(Email: emailController.text, Password: passwordController.text,context: context);
                                   }else{
                                     ShowDialogUtils.ShowMessage(context, Title: "Error",
