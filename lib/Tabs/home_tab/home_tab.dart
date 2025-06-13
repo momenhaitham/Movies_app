@@ -4,12 +4,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/Api/api_manager.dart';
+import 'package:movies_app/Reusable_widgets/custm_elevated_button.dart';
 import 'package:movies_app/Reusable_widgets/film_item_builder.dart';
 import 'package:movies_app/Tabs/home_tab/home_tab_states.dart';
 import 'package:movies_app/utils/app_images.dart';
 import 'package:movies_app/utils/app_styles.dart';
+import 'package:provider/provider.dart';
 
 import '../../models/movies_response.dart';
+import '../../providers/app_provider.dart';
 import 'home_tab_view_model.dart';
 
 class HomeTab extends StatefulWidget{
@@ -23,6 +26,8 @@ class _HomeTabState extends State<HomeTab>{
   var homeTabViewModel = HomeTabViewModel();
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppProvider>(context);
+
     int randomIndex = Random().nextInt(homeTabViewModel.genres.length);
     String randomGenra = homeTabViewModel.genres[randomIndex];
     homeTabViewModel.getAvailableMovies(randomGenra);
@@ -32,18 +37,28 @@ class _HomeTabState extends State<HomeTab>{
       create: (context)=>homeTabViewModel,
       child: BlocBuilder<HomeTabViewModel,HomeTabStates>(builder: (context, state) {
         if(state is HomeTabErrorState){
-          return Center(child: Text("failddddd",style: AppStyles.bold36yellow,));
+          return Center(child: Column(
+            children: [
+              Text(homeTabViewModel.message??"something went Wrong",style: AppStyles.bold36yellow,),
+              CustmElevatedButton(onpressed: ()async{
+                await provider.GetProfileData(provider.CurrentUserTokin!);
+                setState(() {});
+              },text: "try Again",styleOfChild: AppStyles.black16_400,BGcolor: Colors.amber,
+
+              )
+            ],
+          ));
         }
         else if(state is HomeTabSuccessState){
           return SingleChildScrollView(child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                color: Colors.amber,
+                color: Colors.transparent,
                 width: double.infinity,
                 height: height*0.75,
                 child: Stack(children: [
-                  Image.network(homeTabViewModel.AvailableMovies![selectedIndex].largeCoverImage??'',fit: BoxFit.fitWidth,width: double.infinity,),
+                  Image.asset(AppImages.intro1,fit: BoxFit.fitWidth,width: double.infinity,),
                   Image.asset(AppImages.intro1shade,fit: BoxFit.fitWidth,width: double.infinity,),
                   Column(children: [
                     SizedBox(height: height*0.04,),

@@ -3,6 +3,7 @@ import 'package:country_flags/country_flags.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:movies_app/Api/api_manager.dart';
 import 'package:movies_app/Reusable_widgets/show_dialog_utils.dart';
 import 'package:movies_app/home_screen.dart';
@@ -149,9 +150,19 @@ class _LoginPageState extends State<LoginPage> {
                             width: widht * 0.9,
                             height: height * 0.055,
                             child: CustmElevatedButton(
-                              onpressed: (){
+                              onpressed: ()async{
                                 if(formKey.currentState?.validate()==true){
-                                  log.Login(Email: emailController.text, Password: passwordController.text,context: context);
+                                  ShowDialogUtils.ShowLoading(context);
+                                  final bool isConnected = await InternetConnectionChecker.instance.hasConnection;
+                                  if (isConnected){
+                                    log.Login(Email: emailController.text, Password: passwordController.text,context: context);
+                                  }else{
+                                    ShowDialogUtils.ShowMessage(context, Title: "Error",
+                                    Content: "No InterNet Connection",
+                                    NigActionName: "Ok",
+                                    NigAction: (){Navigator.pop(context);});
+                                  }
+
                                   //showDialog(context: context, builder:(context) =>AlertDialog(
                                   //  title: Text("Loading"),content: CircularProgressIndicator(),
                                   //),barrierDismissible: false);

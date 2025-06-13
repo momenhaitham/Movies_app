@@ -2,6 +2,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/Reusable_widgets/custm_elevated_button.dart';
+import 'package:movies_app/Tabs/profile_tab/EditProfileTab/reset_password_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../Reusable_widgets/custm_text_form_field.dart';
@@ -147,7 +148,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
           Row(mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              TextButton(onPressed: (){}, child: Text("Reset Password",style: AppStyles.regular20white,)),
+              TextButton(onPressed: (){
+                Navigator.of(context).pushNamed(ResetPasswordScreen.routeName);
+              }, child: Text("Reset Password",style: AppStyles.regular20white,)),
             ],
           ),
           Spacer(),

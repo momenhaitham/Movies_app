@@ -22,7 +22,6 @@ class RegisterViewModel extends Cubit<RegisterStates>{
   })async{
     ShowDialogUtils.ShowLoading(context);
     var response =await ApiManager.Register(name: name, email: email, Password: Password, confirmPassword: confirmPassword, phone: phone, avaterId: avaterId);
-    Future.delayed(Duration(seconds: 2));
     message=response.message;
     if(message=="User created successfully"){
       emit(BacktoLoginState());
