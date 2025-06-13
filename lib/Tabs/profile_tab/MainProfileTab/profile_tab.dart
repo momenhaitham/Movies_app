@@ -28,15 +28,19 @@ class _ProfileTabState extends State<ProfileTab> {
 
   @override
   Widget build(BuildContext context) {
+
     var width=MediaQuery.of(context).size.width;
     var height=MediaQuery.of(context).size.height;
     var provider = Provider.of<AppProvider>(context);
+    print(provider.CurrentUserTokin);
     return BlocProvider(
       create: (context) => profileTabViewModel,
       child: BlocConsumer<ProfileTabViewModel,ProfileTabStates>(
         builder: (context, state) {
+
           if(provider.ProfileData==null)
             {
+
               return Center(child: CircularProgressIndicator(color: Colors.amber,),);
             }else{
             return Column(
@@ -136,7 +140,7 @@ class _ProfileTabState extends State<ProfileTab> {
         },
         listener: (context, state) {
           if(state is ProfileTabState){
-            //provider.GetProfileData(provider.CurrentUserTokin!);
+
           }
         },
       ),

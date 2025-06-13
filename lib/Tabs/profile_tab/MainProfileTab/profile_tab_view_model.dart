@@ -3,4 +3,5 @@ import 'package:movies_app/Tabs/profile_tab/MainProfileTab/profile_tab_states.da
 
 class ProfileTabViewModel extends Cubit<ProfileTabStates>{
   ProfileTabViewModel():super(ProfileTabState());
+
 }

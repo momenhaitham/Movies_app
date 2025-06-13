@@ -16,6 +16,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late AppProvider provider;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async{
+
+      provider.ReadTokin();
+      await provider.GetProfileData(provider.CurrentUserTokin!);
+    });
+  }
+
   @override
   List<Widget>Tabs=[
     HomeTab(),
@@ -28,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width;
     var height=MediaQuery.of(context).size.height;
-    var provider = Provider.of<AppProvider>(context);
+    provider = Provider.of<AppProvider>(context);
     if(provider.ProfileData==null&&provider.CurrentUserTokin!=null){
       provider.GetProfileData(provider.CurrentUserTokin!);
     }
