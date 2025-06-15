@@ -11,4 +11,6 @@ class AppStyles {
   static TextStyle white16_400 = TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400);
   static TextStyle black16_400 = TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w400);
   static TextStyle primary20bold = TextStyle(color: appColors.primary,fontSize: 20,fontWeight: FontWeight.bold);
+  static TextStyle bold25black = TextStyle(color: Colors.black87,fontSize: 25,fontWeight: FontWeight.bold);
+
 }

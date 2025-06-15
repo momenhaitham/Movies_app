@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/home_screen.dart';
+import 'package:movies_app/screens/Home_Screen/home_screen.dart';
 import 'package:movies_app/utils/app_colors.dart';
 import 'package:movies_app/utils/app_images.dart';
 import 'package:movies_app/utils/app_styles.dart';

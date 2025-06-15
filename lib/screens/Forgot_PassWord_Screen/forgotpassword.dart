@@ -4,8 +4,8 @@ import 'package:movies_app/utils/app_colors.dart';
 import 'package:movies_app/utils/app_images.dart';
 import 'package:movies_app/utils/app_styles.dart';
 
-import '../Reusable_widgets/custm_elevated_button.dart';
-import '../Reusable_widgets/custm_text_form_field.dart';
+import '../../Reusable_widgets/custm_elevated_button.dart';
+import '../../Reusable_widgets/custm_text_form_field.dart';
 
 
 class ForgotPassWord extends StatelessWidget {
