@@ -27,12 +27,13 @@ class FilmItemBuilder extends StatelessWidget {
             Container(child: Row(
               children: [
                 Text("${PassedMovie.rating}",style: AppStyles.regular20white,),
+                Spacer(),
                 Icon(Icons.star,color: Colors.amberAccent,)
               ],),
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(60),color: Colors.black87),
               margin: EdgeInsets.only(top: 10,left: 10),
               padding: EdgeInsets.symmetric(horizontal: 15),
-              width: 83,
+              width: 82,
             )
           ],
         )

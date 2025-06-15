@@ -15,10 +15,11 @@ import 'api_constants.dart';
 import 'end_points.dart';
 
 class ApiManager {
-  Future<MoviesResponse> getMovies({String? Genra})async{
+  Future<MoviesResponse> getMovies({String? Genra,String? Search})async{
     try{
       Uri url = Uri.https('yts.mx','/api/v2/list_movies.json',{
-        "genre":Genra
+        "genre":Genra,
+        "query_term":Search
       });
       var response=await http.get(url);
       var json = jsonDecode(response.body);

@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/home_screen.dart';
+import 'package:movies_app/screens/Home_Screen/home_screen.dart';
 import 'package:movies_app/intro_pages/intro_screen2.dart';
 import 'package:movies_app/intro_pages/intro_screen3.dart';
 import 'package:movies_app/intro_pages/intro_screen4.dart';
 import 'package:movies_app/intro_pages/intro_screen5.dart';
 import 'package:movies_app/intro_pages/intro_screen6.dart';
 import 'package:movies_app/providers/app_provider.dart';
-import 'package:movies_app/screens/forgotpassword.dart';
+import 'package:movies_app/screens/Forgot_PassWord_Screen/forgotpassword.dart';
 import 'package:movies_app/screens/login_screen/login_page.dart';
 import 'package:movies_app/screens/register_screen/regstier.dart';
 import 'package:provider/provider.dart';

@@ -32,5 +32,7 @@ class AppImages {
   static String gamer8 = 'assets/images/gamer8.png';
   static String gamer9 = 'assets/images/gamer9.png';
   static String forgort_password = 'assets/images/forgotpasswordbg.png';
+  static String SearchEmpty = 'assets/images/SearchEmpty.png';
+
 
 }
