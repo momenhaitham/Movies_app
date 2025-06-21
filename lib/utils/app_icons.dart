@@ -7,4 +7,6 @@ class appIcons{
   static String BrowseUnselected= "assets/images/BrowseUnselected.png";
   static String ProfileSelected= "assets/images/ProfileSelected.png";
   static String ProfileUnselected= "assets/images/ProfileUnselected.png";
+  static String WatchIcon= "assets/images/WatchIcon.png";
+
 }

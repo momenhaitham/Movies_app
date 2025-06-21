@@ -1,0 +1,7 @@
+abstract class MovieDetailsStates {}
+class MovieDetailsState extends MovieDetailsStates{}
+class MovieDetailsLoadingState extends MovieDetailsStates{}
+class MovieDetailsSuccessState extends MovieDetailsStates{}
+class MovieAddedToFavoritSuccessState extends MovieDetailsStates{}
+class MovieDeletedFromFavoritSuccessState extends MovieDetailsStates{}
+class MovieAlreadyInFavoritSuccessState extends MovieDetailsStates{}

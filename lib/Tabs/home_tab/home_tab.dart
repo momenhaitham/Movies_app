@@ -31,6 +31,7 @@ class _HomeTabState extends State<HomeTab>{
     int randomIndex = Random().nextInt(homeTabViewModel.genres.length);
     String randomGenra = homeTabViewModel.genres[randomIndex];
     homeTabViewModel.getAvailableMovies(randomGenra);
+    provider.getFavoriteMovies(tokin: provider.CurrentUserTokin!);
     var width=MediaQuery.of(context).size.width;
     var height=MediaQuery.of(context).size.height;
     return BlocProvider(

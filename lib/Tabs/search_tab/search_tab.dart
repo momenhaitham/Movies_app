@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/Api/api_manager.dart';
 import 'package:movies_app/Reusable_widgets/custm_text_form_field.dart';
 import 'package:movies_app/Reusable_widgets/film_item_builder.dart';
 import 'package:movies_app/Tabs/search_tab/search_tab_states.dart';
 import 'package:movies_app/Tabs/search_tab/search_tab_view_model.dart';
 import 'package:movies_app/utils/app_images.dart';
+import 'package:provider/provider.dart';
 
+import '../../providers/app_provider.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_styles.dart';
 
@@ -19,8 +22,10 @@ class _SearchTabState extends State<SearchTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppProvider>(context);
     var width=MediaQuery.of(context).size.width;
     var height=MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         SizedBox(height: height*0.06,),

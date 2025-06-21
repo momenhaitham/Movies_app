@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/Api/api_manager.dart';
 
+import '../../models/favorite_movies_response.dart';
 import '../../models/movies_response.dart';
 import 'home_tab_states.dart';
 
@@ -48,5 +49,7 @@ class HomeTabViewModel extends Cubit<HomeTabStates>{
       print(message);
     }
   }
+
+
 
 }

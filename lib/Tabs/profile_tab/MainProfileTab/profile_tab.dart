@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:movies_app/Api/api_manager.dart';
+import 'package:movies_app/Reusable_widgets/favorite_film_builder.dart';
+import 'package:movies_app/Reusable_widgets/film_item_builder.dart';
+import 'package:movies_app/Reusable_widgets/history_film_builder.dart';
 import 'package:movies_app/Tabs/profile_tab/EditProfileTab/edit_profile_screen.dart';
 import 'package:movies_app/Tabs/profile_tab/MainProfileTab/profile_tab_states.dart';
 import 'package:movies_app/Tabs/profile_tab/MainProfileTab/profile_tab_view_model.dart';
@@ -13,6 +16,7 @@ import 'package:provider/provider.dart';
 
 import '../../../Reusable_widgets/custm_elevated_button.dart';
 import '../../../providers/app_provider.dart';
+import '../../../screens/login_screen/login_page.dart';
 
 class ProfileTab extends StatefulWidget {
 
@@ -32,15 +36,14 @@ class _ProfileTabState extends State<ProfileTab> {
     var width=MediaQuery.of(context).size.width;
     var height=MediaQuery.of(context).size.height;
     var provider = Provider.of<AppProvider>(context);
+
     print(provider.CurrentUserTokin);
     return BlocProvider(
       create: (context) => profileTabViewModel,
       child: BlocConsumer<ProfileTabViewModel,ProfileTabStates>(
         builder: (context, state) {
-
-          if(provider.ProfileData==null)
+          if(provider.ProfileData==null||provider.favoriteMovies==null)
             {
-
               return Center(child: CircularProgressIndicator(color: Colors.amber,),);
             }else{
             return Column(
@@ -62,12 +65,12 @@ class _ProfileTabState extends State<ProfileTab> {
                             Text(provider.ProfileData?.name??"error",style:AppStyles.regular20white,),
                           ],mainAxisAlignment: MainAxisAlignment.center,),
                           Column(children: [
-                            Text("12",style:AppStyles.regular20white,),
+                            Text("${provider.favoriteMovies?.data?.length??"0"}",style:AppStyles.regular20white,),
                             SizedBox(height: height*0.03,),
                             Text("Wish List",style:AppStyles.regular20white,),
                           ],mainAxisAlignment: MainAxisAlignment.center,),
                           Column(children: [
-                            Text("10",style:AppStyles.regular20white,),
+                            Text("${provider.History.length}",style:AppStyles.regular20white,),
                             SizedBox(height: height*0.03,),
                             Text("History",style:AppStyles.regular20white,),
                           ],mainAxisAlignment: MainAxisAlignment.center,),
@@ -87,7 +90,16 @@ class _ProfileTabState extends State<ProfileTab> {
                         ),
                         SizedBox(width: width*0.02,),
                         Container(
-                          child: CustmElevatedButton(onpressed: (){},
+                          child: CustmElevatedButton(onpressed: (){
+                            provider.History=[];
+                            provider.favoriteMovies=null;
+                            provider.HistoryMovies=[];
+                            provider.CurrentUserTokin=null;
+                            provider.ProfileData=null;
+                            provider.selectedAvatar=null;
+                            Navigator.popUntil(context, (route){return route.settings.name==LoginPage.loginroute;});
+                            Navigator.pushNamed(context, LoginPage.loginroute);
+                          },
                             text: "Exit",
                             borderRadius: 10,
                             BGcolor: Colors.red,
@@ -112,8 +124,9 @@ class _ProfileTabState extends State<ProfileTab> {
                             ),
                           ),
                           ButtonBarEntry(
-                            onTap: () {
+                            onTap: ()async {
                               ButtonBarindex = 1;
+
                               setState(() {});
                             },
                             child: Column(
@@ -133,15 +146,26 @@ class _ProfileTabState extends State<ProfileTab> {
                     ],
                   ),
                 ),
-
+                ButtonBarindex==0?
+                Expanded(child:provider.favoriteMovies==null?Column(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Center(child: Image.asset(AppImages.SearchEmpty),)],
+                ):GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,crossAxisSpacing: 5,mainAxisSpacing: 5),padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                    return FavoriteFilmBuilder(PassedMovie: provider.favoriteMovies!.data![index]);
+                      //return FilmItemBuilder(PassedMovie:res);
+                    },itemCount:provider.favoriteMovies?.data!.length,shrinkWrap: true,)):
+                Expanded(child:provider.HistoryMovies.isEmpty?Column(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Center(child: Image.asset(AppImages.SearchEmpty),)],
+                ): GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,crossAxisSpacing: 5,mainAxisSpacing: 5),padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                      return HistoryFilmBuilder(movieDetailsResponse: provider.HistoryMovies[index],);
+                    //return FilmItemBuilder(PassedMovie:res);
+                  },itemCount:provider.History.length,shrinkWrap: true,))
               ],
             );
           }
         },
         listener: (context, state) {
-          if(state is ProfileTabState){
-
-          }
         },
       ),
     );

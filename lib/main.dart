@@ -8,8 +8,10 @@ import 'package:movies_app/intro_pages/intro_screen5.dart';
 import 'package:movies_app/intro_pages/intro_screen6.dart';
 import 'package:movies_app/providers/app_provider.dart';
 import 'package:movies_app/screens/Forgot_PassWord_Screen/forgotpassword.dart';
+import 'package:movies_app/screens/Movie_Details_Screen/movie_details_screen.dart';
 import 'package:movies_app/screens/login_screen/login_page.dart';
 import 'package:movies_app/screens/register_screen/regstier.dart';
+import 'package:movies_app/utils/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'Tabs/profile_tab/EditProfileTab/edit_profile_screen.dart';
 import 'Tabs/profile_tab/EditProfileTab/reset_password_screen.dart';
@@ -62,6 +64,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: Locale(provider.CurrentLocal??"en"),
       themeMode: ThemeMode.dark,
+      darkTheme: AppTheme.DarkTheme,
       initialRoute:provider.CurrentUserTokin==null? LoginPage.loginroute:HomeScreen.routeName,
       routes: {
         IntroScreen1.routeName: (context) => IntroScreen1(),
@@ -75,7 +78,8 @@ class _MyAppState extends State<MyApp> {
         LoginPage.loginroute: (context) => LoginPage(),
         Regstier_page.regstierroute: (context) => Regstier_page(),
         ForgotPassWord.forgotPasswordRoute: (context) => ForgotPassWord(),
-        ResetPasswordScreen.routeName:(context)=>ResetPasswordScreen()
+        ResetPasswordScreen.routeName:(context)=>ResetPasswordScreen(),
+        MovieDetailsScreen.routeName:(context)=>MovieDetailsScreen()
       },
     );
   }
