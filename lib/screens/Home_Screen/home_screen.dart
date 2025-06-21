@@ -19,13 +19,14 @@ class _HomeScreenState extends State<HomeScreen> {
   late AppProvider provider;
 
   @override
-  void initState() {
+  void initState(){
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async{
-
       provider.ReadTokin();
       await provider.GetProfileData(provider.CurrentUserTokin!);
+      await provider.getFavoriteMovies(tokin: provider.CurrentUserTokin!);
+      await provider.ReadHistory();
     });
   }
 
@@ -68,31 +69,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-/*
-Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),color: appColors.Lightblack),
-        margin: EdgeInsets.all(30),
-        width: double.infinity,
-        height: height*0.0872,
-        child: Theme(
-          data: Theme.of(context).copyWith(canvasColor:Colors.transparent),
-          child:BottomNavigationBar(items: [
-            BottomNavigationBarItem(activeIcon:Image.asset(appIcons.HomeSelected),icon:Image.asset(appIcons.HomeUnselected),label:""),
-            BottomNavigationBarItem(activeIcon:Image.asset(appIcons.SearchSelected),icon:Image.asset(appIcons.SearchUnselected),label:""),
-            BottomNavigationBarItem(activeIcon:Image.asset(appIcons.BrowseSelected),icon:Image.asset(appIcons.BrowseUnselected),label:""),
-            BottomNavigationBarItem(activeIcon:Image.asset(appIcons.ProfileSelected),icon:Image.asset(appIcons.ProfileUnselected),label:""),
-          ],
-            showUnselectedLabels: false,
-            elevation: 0,
-            landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
-            type: BottomNavigationBarType.shifting,
-            currentIndex:selectedItem ,
-            showSelectedLabels: false,
-            onTap: (selected){
-              selectedItem=selected;
-              setState(() {});
-            },
-          ),
-        ),
-      ),
- */
