@@ -50,7 +50,10 @@ class _MyAppState extends State<MyApp> {
     WidgetsBinding.instance.addPostFrameCallback((_) async{
       provider.ReadLocal();
       provider.ReadTokin();
-     await provider.GetProfileData(provider.CurrentUserTokin!);
+      if(provider.CurrentUserTokin!=null){
+        await provider.GetProfileData(provider.CurrentUserTokin!);
+      }
+
     });
   }
   @override
