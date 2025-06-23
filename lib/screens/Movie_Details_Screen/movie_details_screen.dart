@@ -183,7 +183,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         child: Row(
                           children: [
                             Container(
-                              child: Image.network(movieDetailsViewModel.movieDetailsResponse!.data!.movie!.cast![index].urlSmallImage??
+                              child: Image.network(movieDetailsViewModel.movieDetailsResponse!.data!.movie!.mediumCoverImage??
                                   movieDetailsViewModel.movieDetailsResponse!.data!.movie!.mediumCoverImage!
                                 ,fit: BoxFit.fill,width: width*0.09,height: height*0.06,),
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
